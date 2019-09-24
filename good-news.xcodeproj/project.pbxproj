@@ -15,6 +15,7 @@
 		FA815D0D233A120800DE0D80 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA815D0C233A120800DE0D80 /* NewsTableViewController.swift */; };
 		FA815D13233A149E00DE0D80 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA815D12233A149E00DE0D80 /* Article.swift */; };
 		FA815D16233A183C00DE0D80 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA815D15233A183C00DE0D80 /* ArticleTableViewCell.swift */; };
+		FA815D19233A1BD900DE0D80 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA815D18233A1BD900DE0D80 /* URLRequest+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FA815D0C233A120800DE0D80 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		FA815D12233A149E00DE0D80 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		FA815D15233A183C00DE0D80 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		FA815D18233A1BD900DE0D80 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				FA815CFA233A118C00DE0D80 /* AppDelegate.swift */,
+				FA815D17233A1BCA00DE0D80 /* Extensions */,
 				FA815D14233A182600DE0D80 /* Cells */,
 				FA815D11233A148E00DE0D80 /* Models */,
 				FA815D0E233A135300DE0D80 /* ViewControllers */,
@@ -116,6 +119,14 @@
 				FA815D15233A183C00DE0D80 /* ArticleTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA815D17233A1BCA00DE0D80 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA815D18233A1BD900DE0D80 /* URLRequest+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA815D19233A1BD900DE0D80 /* URLRequest+Extension.swift in Sources */,
 				FA815D16233A183C00DE0D80 /* ArticleTableViewCell.swift in Sources */,
 				FA815CFB233A118C00DE0D80 /* AppDelegate.swift in Sources */,
 				FA815D0D233A120800DE0D80 /* NewsTableViewController.swift in Sources */,
