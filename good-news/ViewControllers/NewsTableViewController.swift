@@ -22,6 +22,9 @@ class NewsTableViewController: UITableViewController {
     }
     
     private func populateNews() {
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 1024
 
         URLRequest.load(resource: ArticleList.all).subscribe(onNext:
             { [weak self] (result) in
@@ -32,16 +35,13 @@ class NewsTableViewController: UITableViewController {
                         self?.tableView.reloadData()
                     }
                 }
-
                 
             },onError: { (error) in
                 
-                print("xxxxxx")
                 print(error.localizedDescription)
-
+                
         }).disposed(by: self.disposeBag)
-
-
+        
         /*
         if let url : URL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=1a531cf91ab64d778f057c87ff7dfb08") {
 
@@ -59,9 +59,6 @@ class NewsTableViewController: UITableViewController {
          
         }
  */
-        
-        
-
         
         /*
         let newsURL = "https:newsapi.org/v2/top-headlines?country=th&category=business&apiKey=1a531cf91ab64d778f057c87ff7dfb08"
@@ -103,9 +100,40 @@ class NewsTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell  else {
             fatalError("ArticleTableViewCell doesn't have")
         }
+        
+        if let item = self.articles?[indexPath.row] {
+            cell.configCell(item:item, disposeBag: self.disposeBag)
+        }
+        
+        /*
         cell.labelTitle.text = self.articles?[indexPath.row].title
-        cell.labelDesc.text = self.articles?[indexPath.row].title
+        if let stringURL = self.articles?[indexPath.row].urlToImage,
+            let url : URL = URL(string:stringURL) {
+            
+            URLRequest.loadURL(resourceURL:url).subscribe(onNext: { [unowned cell] (data) in
+                
+                if let data = data {
+                    DispatchQueue.main.async {
+                        cell.imageViewNews.isHidden = false
+                        cell.imageViewNews.image = UIImage(data: data)
+                    }
+                }
+                
+            }, onError: { (error) in
+                
+            }, onCompleted: {
+                
+            }).disposed(by: self.disposeBag)
+
+        } else {
+            cell.imageViewNews.isHidden = true
+        }
+        
+        cell.labelDesc.text = "\(self.articles?[indexPath.row].title)\(self.articles?[indexPath.row].title)"
+         */
+        
         return cell
+        
     }
 
 

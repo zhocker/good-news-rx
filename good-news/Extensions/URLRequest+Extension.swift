@@ -25,4 +25,14 @@ extension URLRequest {
         }).asObservable()
     }
     
+    static func loadURL(resourceURL : URL) -> Observable<Data?> {
+        return Observable.from([resourceURL]).flatMap({ (url) -> Observable<Data> in
+            let request = URLRequest(url: url)
+            return URLSession.shared.rx.data(request: request) 
+        }).map({ (data) -> Data? in
+            return data
+        }).asObservable()
+    }
+
+    
 }

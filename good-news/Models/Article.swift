@@ -12,6 +12,10 @@ struct ArticleList : Decodable {
     let articles : [Article]
 }
 
+struct ImageDataNews : Decodable {
+    let imagesData : Data
+}
+
 extension ArticleList {
     static var all : Resource<ArticleList> {
         let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=1a531cf91ab64d778f057c87ff7dfb08")!
@@ -23,4 +27,5 @@ extension ArticleList {
 struct Article : Decodable {
     let title : String?
     let description : String?
+    let urlToImage : String?
 }
