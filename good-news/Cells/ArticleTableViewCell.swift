@@ -30,8 +30,8 @@ class ArticleTableViewCell: UITableViewCell {
     func configCell(item : Article, disposeBag : DisposeBag) {
         
         self.labelTitle.text = item.title
-        self.labelDesc.text = "\(item.title)\(item.title)"
-
+        self.labelDesc.text = "\(item.title ?? "")"
+        
         if let stringURL = item.urlToImage,let url : URL = URL(string:stringURL) {
             
             URLRequest.loadURL(resourceURL:url).subscribe(onNext: { [unowned self] (data) in
